@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    padding: 50px ;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    gap: 0px;
+}
+.h1{
+    font-size: 40px;
+}
+.p{
+    color: rgb(235, 235, 235);
+}
+.post{
+    padding: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 30px;
+    background-color: rgb(53, 53, 53);
+    text-align: center;
+    transition: .5s;
+    width: 80vw;
+    cursor: pointer;
+
+}
+
+.post:hover{
+    background-color: rgb(34, 34, 34);
+    transition: .5s;
+}
+.select{
+    all: unset;
+    padding: 15px 30px;
+    font-size: 20px;
+    color: white;
+    border: 1px solid white;
+    margin: 20px;
+}
+
