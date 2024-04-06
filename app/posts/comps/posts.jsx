@@ -35,10 +35,16 @@ export default function Posts() {
     queryFn: getPostsQuery,
     retry: 100,
   });
-
+  const filterPosts = useCallback(
+    (tag = "All") => {
+      if (tag === "All") return data.posts;
+      return data.posts.filter((post) => post.tags.includes(tag));
+    },
+    [data]
+  );
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    if (data.posts) {
+    if (data && data.posts) {
       setPosts(filterPosts("All"));
     }
   }, [data, filterPosts]);
@@ -54,13 +60,6 @@ export default function Posts() {
 
     return Array.from(tags); // Convert the Set back to an array if needed
   };
-  const filterPosts = useCallback(
-    (tag = "All") => {
-      if (tag === "All") return data.posts;
-      return data.posts.filter((post) => post.tags.includes(tag));
-    },
-    [data]
-  );
 
   if (isError) return <div> an unexpected error occured </div>;
 
