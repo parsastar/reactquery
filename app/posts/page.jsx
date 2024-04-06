@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+
 import Posts from "./comps/posts";
 import styles from "./styles/posts.module.css";
 export default function PostPage() {
