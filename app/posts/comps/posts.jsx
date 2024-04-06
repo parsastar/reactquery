@@ -1,9 +1,9 @@
 "use client";
 import React, { useCallback } from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import styles from "../styles/posts.module.css";
 import getPostsQuery from "@/lib/quaries/Posts/getPostsQuery";
-import sendPostQuery from "@/lib/quaries/Posts/sendPostQuert";
+
 import { Heading, Select, Skeleton, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 export default function Posts() {
@@ -42,9 +42,9 @@ export default function Posts() {
     },
     [data]
   );
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(fakePosts);
   useEffect(() => {
-    if (data && data.posts) {
+    if (data) {
       setPosts(filterPosts("All"));
     }
   }, [data, filterPosts]);
